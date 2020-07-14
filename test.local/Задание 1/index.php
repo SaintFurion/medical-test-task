@@ -3,7 +3,7 @@ session_start();
 
 include_once "functions.php";
 
-$text = action($_POST['way'],  $_POST['command']);
+$text = action($_POST['way'], $_POST['command'], $_POST['values']);
 ?>
 <!Doctype html>
 <html>
@@ -22,16 +22,17 @@ $text = action($_POST['way'],  $_POST['command']);
       Доступные команды:
       <ol>
         <li>Введите путь до CSV-файла;</li>
+        <li>Введите конкретные данные;</li>
         <li>first - переместить указатель на первую запись;</li>
-        <li>next - переместить указатель на следующую запись;</li>
-        <li>eof - признак конца файла.</li>
+        <li>next - переместить указатель на следующую запись.</li>
       </ol>
       <form action='' method='POST'>
         <input type='text' name='way' placeholder='Введите путь' value='<?=$_POST['way']?>'><br>
+        <input type='text' name='values' placeholder='Значение данных колонки'><br>
         <input type='text' name='command' placeholder='Введите команду'><br>
         <input type='submit' name='submit' value='Отправить'><br>
       </form>
-      <?=$text;?>
+      <p><?=$text;?></p>
     </div>
   </header>
 </body>
